@@ -1,6 +1,6 @@
 {
   "name": "gendiff-artem",
-  "version": "0.0.2",
+  "version": "0.0.6a",
   "description": "difference finder",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
@@ -13,6 +13,7 @@
     "dist"
   ],
   "repository": {
+    "test": "jest",
     "type": "git",
     "url": "git+https://github.com/iliasov-artem/project-lvl2-s389"
   },
@@ -24,6 +25,9 @@
   ],
   "author": "Artem Iliasov",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
@@ -33,9 +37,13 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0"
   },
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "lodash": "^4.17.11"
   }
 }
