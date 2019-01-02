@@ -1,7 +1,7 @@
 install:
 	npm install
 start:
-	npx babel-node -- src/bin/gendiff.js _tests_/_fixtures_/before.json _tests_/_fixtures_/after.json
+	npx babel-node -- src/bin/gendiff.js __tests__/__fixtures__/before.json __tests__/__fixtures__/after.json
 publish:
 	npm publish
 lint:
