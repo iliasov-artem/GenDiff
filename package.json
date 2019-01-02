@@ -1,0 +1,42 @@
+{
+  "name": "gendiff-artem",
+  "version": "0.0.1",
+  "description": "difference finder",
+  "bin": {
+    "gendiff": "dist/bin/gendiff.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliasov-artem/project-lvl2-s389"
+  },
+  "homepage": "https://github.com/iliasov-artem/project-lvl2-s389#readme",
+  "keywords": [
+    "getDiff",
+    "comparing",
+    "docs"
+  ],
+  "author": "Artem Iliasov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
+}
