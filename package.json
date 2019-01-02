@@ -1,11 +1,10 @@
 {
   "name": "gendiff-artem",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "difference finder",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
   },
-  "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
