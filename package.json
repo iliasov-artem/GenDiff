@@ -1,6 +1,6 @@
 {
   "name": "gendiff-artem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "difference finder",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "commander": "^2.19.0",
+    "ini": "^1.3.5",
     "js-yaml": "^3.12.0",
     "lodash": "^4.17.11"
   }
