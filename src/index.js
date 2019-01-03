@@ -1,5 +1,5 @@
 import { has } from 'lodash';
-import fs from 'fs';
+import parse from './parsers';
 
 const getDiff = (file1, file2) => {
   const allKeys = Object.keys({ ...file1, ...file2 });
@@ -19,8 +19,8 @@ const getDiff = (file1, file2) => {
 };
 
 const genDiff = (path1, path2) => {
-  const file1 = JSON.parse(fs.readFileSync(path1));
-  const file2 = JSON.parse(fs.readFileSync(path2));
+  const file1 = parse(path1);
+  const file2 = parse(path2);
   return getDiff(file1, file2);
 };
 
