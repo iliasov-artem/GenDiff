@@ -18,10 +18,10 @@ const getDiff = (file1, file2) => {
   return `{\n${result.join('\n')}\n}\n`;
 };
 
-const genDiff = (path1, path2) => {
-  const file1 = parse(path1);
-  const file2 = parse(path2);
-  return getDiff(file1, file2);
+const genDiff = (pathToFile1, pathToFile2) => {
+  const fileContent1 = parse(pathToFile1);
+  const fileContent2 = parse(pathToFile2);
+  return getDiff(fileContent1, fileContent2);
 };
 
 export default genDiff;
