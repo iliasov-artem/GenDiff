@@ -5,6 +5,11 @@
 
 [![asciicast](https://asciinema.org/a/P4TvDcVf6qxf6N23qZR5yxLg1.svg)](https://asciinema.org/a/P4TvDcVf6qxf6N23qZR5yxLg1)
 
+Comparing *.json
 [![asciicast](https://asciinema.org/a/oI4Nggn6ceOfKkm8b8CFWOAsV.svg)](https://asciinema.org/a/oI4Nggn6ceOfKkm8b8CFWOAsV)
 
+Comparing *.yaml
 [![asciicast](https://asciinema.org/a/mPFFLAoGmUQLFekwTrzjxaEF3.svg)](https://asciinema.org/a/mPFFLAoGmUQLFekwTrzjxaEF3)
+
+Comparing *.ini
+[![asciicast](https://asciinema.org/a/UK2ux63wyulYuqxJDOPDrNWQd.svg)](https://asciinema.org/a/UK2ux63wyulYuqxJDOPDrNWQd)
