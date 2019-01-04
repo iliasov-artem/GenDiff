@@ -7,4 +7,4 @@ const parsersStore = {
   ini: ini.decode,
 };
 
-export default (fileContent, fileExtension) => parsersStore[fileExtension](fileContent);
+export default (data, dataType) => parsersStore[dataType](data);
