@@ -20,5 +20,6 @@ const beforeTreePath = '__tests__/__fixtures__/beforeTree.json';
 const afterTreePath = '__tests__/__fixtures__/afterTree.json';
 const resultTreePath = '__tests__/__fixtures__/resultTreee.txt';
 
-test('comparing tree', expect(gendiff(beforeTreePath, afterTreePath)).toBe(fs.readFileSync(resultTreePath, 'utf-8')));
+test('comparing tree', expect(gendiff(beforeTreePath, afterTreePath))
+.toBe(fs.readFileSync(resultTreePath, 'utf-8')));
 */
