@@ -5,6 +5,6 @@ start:
 publish:
 	npm publish
 lint:
-	npx eslint --format json .
+	npx eslint  .
 test:
 	npm test
