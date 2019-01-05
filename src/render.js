@@ -34,7 +34,7 @@ const toString = (value, gapBeforeNode, gapBeforeObject) => (
   isObject(value) ? `{\n${gapBeforeNode}${objectToString1(value, gapBeforeObject)}\n  ${gapBeforeNode}}` : `${value}`
 );
 
-const render = (ast) => {
+const renderTree = (ast) => {
   const iter = (tree, depth = 0) => {
     const gapBeforeNode = getGap('beforeNode', depth);
     const gapBeforeObject = getGap('beforeObject', depth);
@@ -45,11 +45,31 @@ const render = (ast) => {
       changed: node => `${gapBeforeNode}+ ${node.key}: ${toString(node.value, gapBeforeNode, gapBeforeObject)}\n${gapBeforeNode}- ${node.key}: ${toString(node.beforeValue, gapBeforeNode, gapBeforeObject)}`,
       unchanged: node => `${gapBeforeNode}  ${node.key}: ${toString(node.value, gapBeforeNode, gapBeforeObject)}`,
     };
-    const getString = node => stringsStore[node.status];
-    const result = tree.map(element => getString(element)(element));
+    const result = tree.map(element => stringsStore[element.status](element));
     return ['{', ...result, `${getGap('beforeLastCurlBrace', depth)}}`].join('\n');
   };
   return `${iter(ast)}\n`;
 };
 
-export default render;
+const renderPlain = (ast) => {
+  const iter = (data, key) => {
+    const currentValue = node => (isObject(node.value) ? '[complex value]' : node.value);
+    const previousValue = node => (isObject(node.beforeValue) ? '[complex value]' : node.beforeValue);
+    const stringsStore = {
+      node: node => iter(node.children, `${key}${node.key}.`),
+      added: node => `Property ${key}${node.key} was added with value: ${currentValue(node)}`,
+      removed: node => `Property ${key}${node.key} was removed`,
+      changed: node => `Property ${key}${node.key} was updated. From ${previousValue(node)} to ${currentValue(node)}`,
+    };
+    const result = data.filter(node => node.status !== 'unchanged').map(element => stringsStore[element.status](element)).join('\n');
+    return result;
+  };
+  return `${iter(ast, '')}\n`;
+};
+
+const rendersStore = {
+  tree: renderTree,
+  plain: renderPlain,
+};
+
+export default rendersStore;
