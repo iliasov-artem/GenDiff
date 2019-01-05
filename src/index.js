@@ -4,7 +4,7 @@ import parse from './parsers';
 import getAst from './ast';
 import render from './renders/render';
 
-const genDiff = (pathToFile1, pathToFile2, format = 'plain') => {
+const genDiff = (pathToFile1, pathToFile2, format = 'tree') => {
   const fileContent1 = fs.readFileSync(pathToFile1, 'utf-8');
   const fileExtension1 = path.extname(pathToFile1).slice(1);
   const fileAsObject1 = parse(fileContent1, fileExtension1);
