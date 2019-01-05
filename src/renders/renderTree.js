@@ -1,7 +1,5 @@
 import { flattenDeep } from 'lodash';
 
-const arr = ['dfsdf: 1', 'dasdd: 2'];
-
 export const isObject = val => val === Object(val);
 
 const defaultGap = 2;
@@ -38,7 +36,6 @@ const toString = (value, gapBeforeNode, gapBeforeObject) => (
 );
 
 const renderTree = (ast) => {
-  console.log(flattenDeep(arr));
   const iter = (tree, depth = 0) => {
     const gapBeforeNode = getGap('beforeNode', depth);
     const gapBeforeObject = getGap('beforeObject', depth);
