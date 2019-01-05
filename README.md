@@ -20,3 +20,7 @@ Comparing *.ini
 Comparing Tree
 
 [![asciicast](https://asciinema.org/a/sngSj6r0zpbLvwL1pcg2aTSio.svg)](https://asciinema.org/a/sngSj6r0zpbLvwL1pcg2aTSio)
+
+Plain format
+
+[![asciicast](https://asciinema.org/a/PCUWwjp8BlTooncE9qNE3l75Z.svg)](https://asciinema.org/a/PCUWwjp8BlTooncE9qNE3l75Z)
