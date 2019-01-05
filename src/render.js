@@ -70,6 +70,7 @@ const renderPlain = (ast) => {
 const rendersStore = {
   tree: renderTree,
   plain: renderPlain,
+  json: JSON.stringify,
 };
 
 export default rendersStore;

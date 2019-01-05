@@ -24,3 +24,7 @@ Comparing Tree
 Plain format
 
 [![asciicast](https://asciinema.org/a/PCUWwjp8BlTooncE9qNE3l75Z.svg)](https://asciinema.org/a/PCUWwjp8BlTooncE9qNE3l75Z)
+
+Json output
+
+[![asciicast](https://asciinema.org/a/Kq3ZeVREKZjopYPUsJjSBwYMg.svg)](https://asciinema.org/a/Kq3ZeVREKZjopYPUsJjSBwYMg)
