@@ -16,3 +16,7 @@ Comparing *.yaml
 Comparing *.ini
 
 [![asciicast](https://asciinema.org/a/UK2ux63wyulYuqxJDOPDrNWQd.svg)](https://asciinema.org/a/UK2ux63wyulYuqxJDOPDrNWQd)
+
+Comparing Tree
+
+[![asciicast](https://asciinema.org/a/sngSj6r0zpbLvwL1pcg2aTSio.svg)](https://asciinema.org/a/sngSj6r0zpbLvwL1pcg2aTSio)
