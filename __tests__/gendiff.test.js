@@ -15,11 +15,19 @@ test.each(testsSet)('test %s compared %s', (extension1, extension2) => {
   const after = `${afterPath}${extension2}`;
   expect(gendiff(before, after)).toBe(fs.readFileSync(resultPath, 'utf-8'));
 });
-/*
-const beforeTreePath = '__tests__/__fixtures__/beforeTree.json';
-const afterTreePath = '__tests__/__fixtures__/afterTree.json';
+
+const beforeTreePath = '__tests__/__fixtures__/beforeTree';
+const afterTreePath = '__tests__/__fixtures__/afterTree';
 const resultTreePath = '__tests__/__fixtures__/resultTreee.txt';
 
-test('comparing tree', expect(gendiff(beforeTreePath, afterTreePath))
-.toBe(fs.readFileSync(resultTreePath, 'utf-8')));
-*/
+const testsTreeSet = [
+  ['.json', '.json'],
+  ['.yaml', '.yaml'],
+  ['.ini', '.ini'],
+];
+
+test.each(testsTreeSet)('test %s compared %s', (extension1, extension2) => {
+  const before = `${beforeTreePath}${extension1}`;
+  const after = `${afterTreePath}${extension2}`;
+  expect(gendiff(before, after)).toBe(fs.readFileSync(resultTreePath, 'utf-8'));
+});
