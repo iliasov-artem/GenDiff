@@ -1,42 +1,42 @@
-import { has } from 'lodash';
+import _ from 'lodash';
 
-const isObject = val => val === Object(val);
+export const isObject = val => val === Object(val);
 
 const makeAst = (fileContent1, fileContent2) => {
-  const allKeys = Object.keys({ ...fileContent1, ...fileContent2 });
-  const ast = allKeys.map((key) => {
+  const keys = _.union(Object.keys(fileContent1), Object.keys(fileContent2));
+  const ast = keys.map((key) => {
+    if (!_.has(fileContent1, key)) {
+      return {
+        key,
+        type: 'added',
+        currentValue: fileContent2[key],
+      };
+    }
+    if (!_.has(fileContent2, key)) {
+      return {
+        key,
+        type: 'removed',
+        value: fileContent1[key],
+      };
+    }
     if (isObject(fileContent1[key]) && isObject(fileContent2[key])) {
       return {
         key,
-        status: 'node',
+        type: 'node',
         children: makeAst(fileContent1[key], fileContent2[key]),
-      };
-    }
-    if (!has(fileContent1, key)) {
-      return {
-        key,
-        status: 'added',
-        value: fileContent2[key],
-      };
-    }
-    if (!has(fileContent2, key)) {
-      return {
-        key,
-        status: 'removed',
-        value: fileContent1[key],
       };
     }
     if (fileContent1[key] !== fileContent2[key]) {
       return {
         key,
-        status: 'changed',
-        beforeValue: fileContent1[key],
-        value: fileContent2[key],
+        type: 'changed',
+        previousValue: fileContent1[key],
+        currentValue: fileContent2[key],
       };
     }
     return {
       key,
-      status: 'unchanged',
+      type: 'unchanged',
       value: fileContent1[key],
     };
   });
