@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-export const isObject = val => val === Object(val);
-
 const makeAst = (fileContent1, fileContent2) => {
   const keys = _.union(Object.keys(fileContent1), Object.keys(fileContent2));
   const ast = keys.map((key) => {
@@ -19,7 +17,7 @@ const makeAst = (fileContent1, fileContent2) => {
         value: fileContent1[key],
       };
     }
-    if (isObject(fileContent1[key]) && isObject(fileContent2[key])) {
+    if (_.isObject(fileContent1[key]) && _.isObject(fileContent2[key])) {
       return {
         key,
         type: 'node',
