@@ -1,10 +1,10 @@
 import renderTree from './renderTree';
 import renderPlain from './renderPlain';
 
-const rendersStore = {
+const renderersStore = {
   tree: renderTree,
   plain: renderPlain,
   json: JSON.stringify,
 };
 
-export default rendersStore;
+export default (ast, type) => renderersStore[type](ast);

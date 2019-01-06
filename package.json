@@ -1,6 +1,6 @@
 {
   "name": "gendiff-artem",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "difference finder",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"

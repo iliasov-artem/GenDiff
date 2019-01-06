@@ -1,41 +1,41 @@
 import _ from 'lodash';
 
-const makeAst = (fileContent1, fileContent2) => {
-  const keys = _.union(Object.keys(fileContent1), Object.keys(fileContent2));
+const makeAst = (firstConfigTree, secondConfigTree) => {
+  const keys = _.union(Object.keys(firstConfigTree), Object.keys(secondConfigTree));
   const ast = keys.map((key) => {
-    if (!_.has(fileContent1, key)) {
+    if (!_.has(firstConfigTree, key)) {
       return {
         key,
         type: 'added',
-        currentValue: fileContent2[key],
+        currentValue: secondConfigTree[key],
       };
     }
-    if (!_.has(fileContent2, key)) {
+    if (!_.has(secondConfigTree, key)) {
       return {
         key,
         type: 'removed',
-        value: fileContent1[key],
+        value: firstConfigTree[key],
       };
     }
-    if (_.isObject(fileContent1[key]) && _.isObject(fileContent2[key])) {
+    if (_.isObject(firstConfigTree[key]) && _.isObject(secondConfigTree[key])) {
       return {
         key,
         type: 'node',
-        children: makeAst(fileContent1[key], fileContent2[key]),
+        children: makeAst(firstConfigTree[key], secondConfigTree[key]),
       };
     }
-    if (fileContent1[key] !== fileContent2[key]) {
+    if (firstConfigTree[key] !== secondConfigTree[key]) {
       return {
         key,
         type: 'changed',
-        previousValue: fileContent1[key],
-        currentValue: fileContent2[key],
+        previousValue: firstConfigTree[key],
+        currentValue: secondConfigTree[key],
       };
     }
     return {
       key,
       type: 'unchanged',
-      value: fileContent1[key],
+      value: firstConfigTree[key],
     };
   });
   return ast;

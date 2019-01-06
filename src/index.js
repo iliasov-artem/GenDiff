@@ -2,17 +2,17 @@ import path from 'path';
 import fs from 'fs';
 import parse from './parsers';
 import getAst from './ast';
-import render from './renderers/index';
+import render from './renderers';
 
-const genDiff = (pathToFile1, pathToFile2, format = 'tree') => {
-  const fileContent1 = fs.readFileSync(pathToFile1, 'utf-8');
-  const fileExtension1 = path.extname(pathToFile1).slice(1);
-  const fileAsObject1 = parse(fileContent1, fileExtension1);
-  const fileContent2 = fs.readFileSync(pathToFile2, 'utf-8');
-  const fileExtension2 = path.extname(pathToFile2).slice(1);
-  const fileAsObject2 = parse(fileContent2, fileExtension2);
-  const ast = getAst(fileAsObject1, fileAsObject2);
-  const renderedAst = render[format](ast);
+const genDiff = (pathToFirstConfig, pathToSecondConfig, format = 'tree') => {
+  const firstConfigContent = fs.readFileSync(pathToFirstConfig, 'utf-8');
+  const firstConfigExtension = path.extname(pathToFirstConfig).slice(1);
+  const firstConfigTree = parse(firstConfigContent, firstConfigExtension);
+  const secondConfigContent = fs.readFileSync(pathToSecondConfig, 'utf-8');
+  const secondConfigExtension = path.extname(pathToSecondConfig).slice(1);
+  const secondConfigTree = parse(secondConfigContent, secondConfigExtension);
+  const ast = getAst(firstConfigTree, secondConfigTree);
+  const renderedAst = render(ast, format);
   return renderedAst;
 };
 
