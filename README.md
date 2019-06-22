@@ -1,5 +1,21 @@
+## Консольная утилита для поиска отличий в конфигурационных файлах.
+
 <a href="https://codeclimate.com/github/iliasov-artem/project-lvl2-s389/maintainability"><img src="https://api.codeclimate.com/v1/badges/e1f8957b4cb1831c9e1d/maintainability" /></a>
 <a href="https://codeclimate.com/github/iliasov-artem/project-lvl1-s388/test_coverage"><img src="https://api.codeclimate.com/v1/badges/14fe59c6961ffd5d3f9f/test_coverage" /></a>
+
+## Навыки и технологии
+
++ cli приложение с парсингом и валидацией входных параметров
++ форматы данных: json, yaml, ini. Перевод форматов в/из JavaScript
++ разработка через тестирование
++ обработка и трансформация деревьев
++ концепции Фасад и Адаптер
++ полиморфизм
++ функциональное программирование
+
+## Install:
+
+```sudo npm i -g gendiff-artem```
 
 [![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/iliasov-artem/project-lvl1-s389)
 
